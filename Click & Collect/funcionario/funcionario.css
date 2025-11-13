@@ -1,31 +1,280 @@
-:root{
-  --bg:#ffffff; --muted:#8b8b95; --border:#e6e6ea; --accent:#0b0610; --success:#2bb673; --shadow:0 1px 2px rgba(11,6,16,0.04);
+:root {
+  --bg: #ffffff;
+  --muted: #8b8b95;
+  --border: #e6e6ea;
+  --accent: #0b0610;
+  --success: #2bb673;
+  --shadow: 0 1px 2px rgba(11,6,16,0.04);
   font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
 }
-*{box-sizing:border-box}
-body{margin:0; background:var(--bg); color:#111;}
-.container{width:1100px; max-width:calc(100% - 40px); margin:36px auto;}
-.topbar{display:flex; justify-content:space-between; align-items:center; padding:20px 28px; border-bottom:1px solid var(--border); background:white; position:sticky; top:0; z-index:10;}
-.brand h1{margin:0; font-size:20px; font-weight:700;}
-.brand .subtitle{margin:3px 0 0; color:var(--muted); font-size:13px}
-.top-actions{display:flex; align-items:center; gap:18px;}
-.toggle-view{display:flex; gap:8px; align-items:center;}
-.pill{background:#f3f4f6; padding:8px 12px; border-radius:12px; font-size:13px; color:#333; text-decoration:none; border:1px solid transparent;}
-.pill.active{background:white; box-shadow:var(--shadow); border-color:var(--border);}
-.cart-btn{display:flex; gap:8px; align-items:center; text-decoration:none; color:#111; border-radius:8px; padding:6px 10px; border:1px solid var(--border);}
-.cart-count{background:#111; color:white; padding:4px 8px; border-radius:12px; font-size:12px}
 
-.employee-controls{display:flex; justify-content:space-between; align-items:center; gap:12px; margin-bottom:14px}
-.search{width:100%; padding:10px;border:1px solid var(--border); border-radius:8px}
-.orders-list{display:flex; flex-direction:column; gap:16px}
-.order{border:1px solid var(--border); padding:14px; border-radius:10px; background:white;}
-.order-header{display:flex; justify-content:space-between; align-items:center; gap:12px}
-.order-meta{font-size:13px; color:var(--muted)}
-.status-pill{padding:6px 8px; border-radius:8px; font-weight:700; font-size:12px}
-.status-pendente{background:#fff7e6; color:#b58200; border:1px solid #f0e0c8}
-.status-pronto{background:#e8f7ff; color:#0a6fa6; border:1px solid #d6eefc}
-.status-finalizado{background:#e9f9ee; color:var(--success); border:1px solid #cfeedd}
-.btn-primary{background:var(--accent); color:white; padding:8px 10px; border-radius:8px; border:0; cursor:pointer; font-weight:700}
+/* ===== Reset ===== */
+* {
+  box-sizing: border-box;
+}
 
-/* responsive */
-@media (max-width:900px){ .container{padding:0 12px} }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: #111;
+}
+
+/* ===== Container ===== */
+.container {
+  width: 1100px;
+  max-width: calc(100% - 40px);
+  margin: 36px auto;
+}
+
+/* ===== Topo ===== */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 28px;
+  border-bottom: 1px solid var(--border);
+  background: white;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.brand h1 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 700;
+}
+
+.brand .subtitle {
+  margin: 3px 0 0;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+/* ===== Top Actions ===== */
+.top-actions {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  flex-wrap: wrap;
+}
+
+.toggle-view {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.pill {
+  background: #f3f4f6;
+  padding: 8px 12px;
+  border-radius: 12px;
+  font-size: 13px;
+  color: #333;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: 0.2s;
+}
+
+.pill:hover {
+  background: #e7e7e9;
+}
+
+.pill.active {
+  background: white;
+  box-shadow: var(--shadow);
+  border-color: var(--border);
+}
+
+.cart-btn {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  text-decoration: none;
+  color: #111;
+  border-radius: 8px;
+  padding: 6px 10px;
+  border: 1px solid var(--border);
+  background: #f9f9f9;
+  transition: 0.2s;
+}
+
+.cart-btn:hover {
+  background: #ececec;
+}
+
+.cart-count {
+  background: #111;
+  color: white;
+  padding: 4px 8px;
+  border-radius: 12px;
+  font-size: 12px;
+}
+
+/* ===== Lista de pedidos ===== */
+.employee-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+  flex-wrap: wrap;
+}
+
+.search {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.orders-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.order {
+  border: 1px solid var(--border);
+  padding: 14px;
+  border-radius: 10px;
+  background: white;
+}
+
+.order-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.order-meta {
+  font-size: 13px;
+  color: var(--muted);
+}
+
+.status-pill {
+  padding: 6px 8px;
+  border-radius: 8px;
+  font-weight: 700;
+  font-size: 12px;
+  text-align: center;
+  min-width: 80px;
+}
+
+.status-pendente {
+  background: #fff7e6;
+  color: #b58200;
+  border: 1px solid #f0e0c8;
+}
+
+.status-pronto {
+  background: #e8f7ff;
+  color: #0a6fa6;
+  border: 1px solid #d6eefc;
+}
+
+.status-finalizado {
+  background: #e9f9ee;
+  color: var(--success);
+  border: 1px solid #cfeedd;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: white;
+  padding: 8px 10px;
+  border-radius: 8px;
+  border: 0;
+  cursor: pointer;
+  font-weight: 700;
+  transition: background 0.2s;
+}
+
+.btn-primary:hover {
+  background: #2b2630;
+}
+
+/* ===== Responsividade ===== */
+@media (max-width: 900px) {
+  .container {
+    padding: 0 12px;
+  }
+
+  .topbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 16px;
+  }
+
+  .brand h1 {
+    font-size: 18px;
+  }
+
+  .top-actions {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  .toggle-view {
+    flex-wrap: wrap;
+  }
+
+  .employee-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .order-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .status-pill {
+    align-self: flex-start;
+  }
+}
+
+@media (max-width: 600px) {
+  .brand h1 {
+    font-size: 16px;
+  }
+
+  .order {
+    padding: 12px;
+  }
+
+  .btn-primary {
+    width: 100%;
+    text-align: center;
+  }
+
+  .pill {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+
+  .cart-btn {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 400px) {
+  .topbar {
+    padding: 12px;
+  }
+
+  .container {
+    margin: 20px auto;
+  }
+
+  .status-pill {
+    font-size: 11px;
+    padding: 4px 6px;
+  }
+}
