@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Click & Collect - Catálogo</title>
+  <link rel="stylesheet" href="loja.css" />
+</head>
+<body>
+  <h2>Selecione a Loja</h2>
+
+<label for="lojaSelecionada">Escolha a loja:</label>
+<select id="lojaSelecionada" onchange="definirLoja()">
+    <option value="1">Loja 1</option>
+    <option value="2">Loja 2</option>
+    <option value="3">Loja 3</option>
+</select>
+
+<hr>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="logo">Click &amp; Collect</h1>
+      <div class="search-wrap">
+        <input id="search" type="search" placeholder="Pesquisar produtos..." />
+      </div>
+      <div class="toggle-view">
+        <a class="pill" href="../loja/loja.html">Loja</a>
+        <a class="pill active" href="../funcionario/funcionario.html">Visão do Funcionário</a>
+        <a class="pill active" href="../cliente/cliente.html">Visão do Cliente</a>
+      </div>
+      <a class="cart-link" href="../carrinho/carrinho.html">Carrinho <span id="cart-count">0</span></a>
+    </div>
+  </header>
+
+  <main class="container main-content">
+    <section class="hero">
+      <h2>Produtos em destaque</h2>
+      <p>Escolha e retire na loja</p>
+    </section>
+
+    <section id="products" class="product-grid">
+      <!-- Cards gerados pelo cliente.js -->
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>© Click & Collect</small>
+    </div>
+  </footer>
+
+  <script src="loja.js"></script>
+  <script>
+function definirLoja() {
+    const loja = document.getElementById("lojaSelecionada").value;
+    localStorage.setItem("lojaSelecionada", loja);
+    alert("Loja selecionada: " + loja);
+}
+</script>
+<script src="loja.js"></script>
+
+<script>
+// Carregar loja previamente selecionada (caso já tenha escolha salva)
+document.addEventListener("DOMContentLoaded", () => {
+    const lojaSalva = localStorage.getItem("lojaSelecionada");
+
+    if (lojaSalva) {
+        document.getElementById("lojaSelecionada").value = lojaSalva;
+    }
+
+    atualizarCatalogoPelaLoja();
+});
+
+// Quando cliente muda a loja no select
+function definirLoja() {
+    const loja = document.getElementById("lojaSelecionada").value;
+    localStorage.setItem("lojaSelecionada", loja);
+
+    // Atualiza os produtos da loja escolhida
+    atualizarCatalogoPelaLoja();
+}
+
+// Função para recarregar catálogo baseado na loja
+function atualizarCatalogoPelaLoja() {
+    const loja = localStorage.getItem("lojaSelecionada") || "1";
+
+    // Caso use produtos diferentes por loja futuramente, aqui centraliza
+    if (typeof carregarProdutosPorLoja === "function") {
+        carregarProdutosPorLoja(loja);
+    }
+}
+</script>
+
+</body>
+</html>

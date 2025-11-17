@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Click & Collect — Funcionário</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="funcionario.css">
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand">
+      <h1>Painel do Funcionário</h1>
+      <p class="subtitle">Pedidos e Acessos</p>
+    </div>
+    
+    <nav class="top-actions">
+      <div class="store-selector-wrap">
+        <label for="lojaSelecionadaFuncionario" class="order-meta">Loja:</label>
+        <select id="lojaSelecionadaFuncionario">
+          <option value="1">Loja 1</option>
+          <option value="2">Loja 2</option>
+          <option value="3">Loja 3</option>
+        </select>
+      </div>
+
+      <div class="toggle-view">
+        <a class="pill" href="../../loja/loja.html">Loja</a>
+        <a class="pill active">Visão do Funcionário</a>
+        <a class="pill" href="../../cliente/cliente.html">Visão do Cliente</a> 
+      </div>
+      <a class="cart-btn" href="../../carrinho/carrinho.html">
+        <span class="cart-icon">🛒</span>
+        <span id="cartCountHeader" class="cart-count">0</span>
+      </a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section class="employee-panel">
+
+            <h2 style="margin-top: 0;">Clientes - Solicitações de Acesso</h2>
+      <div id="pendentesList" class="requests-container">
+                <p>Carregando solicitações...</p>
+      </div>
+      
+      <hr style="margin: 20px 0;">
+
+            <h2>Pedidos</h2>
+      
+      <div class="employee-controls">
+        <input id="searchOrder" placeholder="Buscar por número do pedido ou nome..." class="search" />
+      </div>
+
+      <div id="ordersList" class="orders-list"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p class="muted">Protótipo — Painel de Pedidos</p>
+  </footer>
+
+  <script src="funcionario.js"></script> 
+</body>
+</html>

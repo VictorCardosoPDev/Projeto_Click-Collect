@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="pt-BR">
+<head> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8" />
+  <title>Click & Collect - Carrinho</title>
+  <link rel="stylesheet" href="carrinho.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-inner">
+      <h1 class="logo">Click &amp; Collect</h1>
+      <div class="toggle-view">
+        <a class="pill" href="../loja/loja.html">Loja</a>
+                <a class="pill" href="../funcionario/funcionario.html">Visão do Funcionário</a>
+        <a class="pill" href="../cliente/cliente.html">Visão do Cliente</a>
+      </div>
+    </div>
+  </header>
+
+  <main class="container main-content">
+    <h2>Seu Carrinho</h2>
+    
+        <ul id="cartList" class="cart-list">
+            </ul>
+
+    <div class="cart-summary">
+                <h3>Total: <span id="cartTotal">R$ 0,00</span></h3>
+        
+                <button id="checkoutBtn" class="btn-checkout">Finalizar Pedido e Pagar</button>
+        <a href="../loja/loja.html" class="btn-continue">Continuar Comprando</a>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <small>© Click & Collect</small>
+    </div>
+  </footer>
+
+  <script src="carrinho.js"></script>
+</body>
+</html>

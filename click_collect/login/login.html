@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="login.css">
+</head>
+<body>
+
+<h2>Login</h2>
+
+<div class="login-container">
+    <select id="tipoUsuario">
+        <option value="cliente">Cliente</option>
+        <option value="funcionario">Funcionário</option>
+    </select>
+
+    <input type="text" id="user" placeholder="Usuário">
+    <input type="password" id="pass" placeholder="Senha">
+
+    <button onclick="fazerLogin()">Entrar</button>
+</div>
+
+<hr>
+
+<h2>Solicitar Acesso (Cliente)</h2>
+<div class="cadastro-container">
+    <input type="text" id="cadastroNome" placeholder="Nome Completo">
+    <input type="email" id="cadastroEmail" placeholder="E-mail">
+    <button onclick="solicitarAcesso()">Solicitar Acesso</button> 
+</div>
+<script src="login.js"></script>
+
+</body>
+</html>
